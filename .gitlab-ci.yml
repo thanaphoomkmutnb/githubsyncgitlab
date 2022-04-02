@@ -10,11 +10,10 @@ build:
   artifacts:
     expire_in: 1 days
     when: on_success
-    patchs: node_modules/
+    paths: 
+      - node_modules/
 
 test:
   stage: run
   script: npm run test
   only: build
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
