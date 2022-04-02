@@ -6,7 +6,8 @@ stages:
 
 build:
   stage: install
-  script: npm install
+  script: 
+    - npm install
   artifacts:
     expire_in: 1 days
     when: on_success
@@ -15,5 +16,7 @@ build:
 
 test:
   stage: run
-  script: npm run test
-  only: build
+  script: 
+    - npm run test
+  only: 
+    - build
