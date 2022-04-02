@@ -1,11 +1,19 @@
 image: node
 
+stages:
+  - build
+  - test
+
 build:
+  stage: install
   script: npm install
   artifacts:
     expire_in: 1 days
     when: on_success
-    paths: node_modules/
+    paths: 
+      - node_modules/
 
 test:
+  stage: run
   script: npm run test
+  only: build
